@@ -46,7 +46,9 @@ func getTopStories() {
 		if decoder_error != nil {
 			log.Fatal(decoder_error)
 		}
-		if item.Score > MinimumScore {
+
+		// Only print stories above minimum score
+		if item.Score > MinimumScore && item.Item_type == "story" {
 			printStory(item.Title, item.Url)
 		}
 	}
